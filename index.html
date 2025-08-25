@@ -1,345 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Azmath Moosa — AI/ML Portfolio</title>
-  <meta name="description" content="Principal Data Scientist & AI Product Architect — Generative AI, Computer Vision, Agentic AI" />
-  <meta property="og:title" content="Azmath Moosa — AI/ML Portfolio" />
-  <meta property="og:description" content="Principal Data Scientist & AI Product Architect — Generative AI, Computer Vision, Agentic AI" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230ea5e9'/%3E%3Cstop offset='1' stop-color='%2367e8f9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='128' height='128' rx='24' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='64' fill='white'%3EAM%3C/text%3E%3C/svg%3E" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azmath Moosa | AI Product Architect</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tailwind config (optional custom colors)
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#ecfeff',
-              100: '#cffafe',
-              200: '#a5f3fc',
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4',
-              600: '#0891b2',
-              700: '#0e7490',
-              800: '#155e75',
-              900: '#164e63',
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.7); }
-    .dark .glass { background: rgba(2,6,23,0.5); }
-  </style>
-  <script>
-    // Simple dark mode toggle persistence
-    const setTheme = (mode) => {
-      if (mode === 'dark') document.documentElement.classList.add('dark');
-      else document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', mode);
-    };
-    (function initTheme(){
-      const saved = localStorage.getItem('theme');
-      if (saved) setTheme(saved);
-      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-    })();
-  </script>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-40 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/75 dark:bg-slate-950/75 glass">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="#home" class="font-bold tracking-tight text-lg">Azmath <span class="text-brand-500">Moosa</span></a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" class="hover:text-brand-500">About</a>
-          <a href="#experience" class="hover:text-brand-500">Experience</a>
-          <a href="#projects" class="hover:text-brand-500">Projects</a>
-          <a href="#skills" class="hover:text-brand-500">Skills</a>
-          <a href="#education" class="hover:text-brand-500">Education</a>
-          <a href="#contact" class="hover:text-brand-500">Contact</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <button id="themeToggle" class="px-3 py-1.5 rounded-xl border border-slate-300/50 dark:border-slate-700/60 text-xs hover:bg-slate-100 dark:hover:bg-slate-900">Toggle theme</button>
-          <a href="#contact" class="hidden sm:inline-block px-3 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs">Hire me</a>
-        </div>
-      </div>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Azmath Moosa</h1>
+      <nav class="space-x-6">
+        <a href="#about" class="text-gray-700 hover:text-black">About</a>
+        <a href="#products" class="text-gray-700 hover:text-black">Products</a>
+        <a href="#skills" class="text-gray-700 hover:text-black">Skills</a>
+        <a href="#contact" class="text-gray-700 hover:text-black">Contact</a>
+      </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-300/40 dark:bg-brand-700/30 blur-3xl rounded-full"></div>
-      <div class="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-indigo-300/30 dark:bg-indigo-700/20 blur-3xl rounded-full"></div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 py-16 sm:py-24">
-      <div class="grid md:grid-cols-2 items-center gap-10">
-        <div>
-          <p class="text-xs uppercase tracking-widest text-slate-500">Principal Data Scientist • AI Product Architect</p>
-          <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight">Building <span class="text-brand-600">reliable AI</span> products for <span class="whitespace-nowrap">vision & LLMs</span></h1>
-          <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-prose">9+ years designing and deploying scalable AI systems across computer vision, generative AI, agentic workflows, and edge/cloud inferencing. Hands-on leader who ships. </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:azmathmoosa@gmail.com" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm">Email</a>
-            <a href="https://kamerai.ai" target="_blank" class="px-4 py-2 rounded-xl border border-slate-300/70 dark:border-slate-700/70 text-sm">Website</a>
-            <a href="#projects" class="px-4 py-2 rounded-xl border border-slate-300/70 dark:border-slate-700/70 text-sm">View Projects</a>
-          </div>
-          <div class="mt-4 text-xs text-slate-500">Currently @ KamerAI (2018—Present)</div>
-        </div>
-        <div class="md:justify-self-end">
-          <div class="relative">
-            <div class="w-64 h-64 sm:w-72 sm:h-72 rounded-3xl bg-gradient-to-br from-brand-400/30 to-indigo-400/30 border border-slate-200/60 dark:border-slate-800/60 flex items-center justify-center shadow-xl">
-              <span class="text-6xl">🤖</span>
-            </div>
-            <div class="absolute -bottom-4 -left-4 px-3 py-2 text-xs rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/60 dark:border-slate-800/60 shadow">Edge & Cloud</div>
-            <div class="absolute -top-3 -right-3 px-3 py-2 text-xs rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/60 dark:border-slate-800/60 shadow">CV + LLM</div>
-          </div>
-        </div>
+  <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-24">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-4">Principal Data Scientist & AI Product Architect</h2>
+      <p class="text-lg">Generative AI • Computer Vision • Agentic AI</p>
+      <div class="mt-6">
+        <a href="https://www.linkedin.com/in/azmathmoosa/" target="_blank" class="bg-white text-indigo-600 font-medium px-6 py-2 rounded-lg shadow hover:bg-gray-100">LinkedIn</a>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-12 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">About</h2>
-      <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">I architect, build, and operate AI products end‑to‑end. My focus areas are high‑performance computer vision (DeepStream/GStreamer), agentic LLM workflows (vLLM, Unsloth, LangChain/LlamaIndex), and robust deployment on Triton/Riva, edge devices, and cloud backends. I combine ML with pragmatic heuristics to deliver reliable, interpretable systems.</p>
+  <section id="about" class="py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-2xl font-bold mb-6">About Me</h3>
+      <p class="text-gray-700 leading-relaxed">
+        I am an accomplished AI/ML engineer with 9+ years of experience architecting and deploying scalable AI solutions in 
+        <span class="font-semibold">computer vision</span> and <span class="font-semibold">generative AI</span>. 
+        I specialize in end-to-end product delivery, agentic workflows, RAG pipelines, and cloud/edge deployments. 
+        I thrive on building impactful products, mentoring teams, and pushing the boundaries of applied AI.
+      </p>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="py-12 sm:py-16 bg-slate-100/60 dark:bg-slate-900/40">
+  <!-- Products -->
+  <section id="products" class="py-16 bg-gray-100">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">Experience</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <!-- KamerAI -->
-        <article class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h3 class="font-semibold text-lg">KamerAI Pvt. Ltd.</h3>
-              <p class="text-sm text-slate-500">Principal Data Scientist (current) • Technical Lead • TA • SSE</p>
-            </div>
-            <span class="text-xs px-2 py-1 rounded bg-brand-100 text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">Aug 2018 — Present</span>
-          </div>
-          <ul class="mt-4 space-y-2 text-sm leading-relaxed list-disc pl-5">
-            <li>Architected and shipped multiple vision products; established monorepo, dockerized workflows, and reusable libraries for lean team velocity.</li>
-            <li>Built scalable video analytics pipelines; authored custom NVIDIA DeepStream plugins; mentored engineers while remaining hands‑on IC.</li>
-            <li>Devised monocular ground‑plane method to estimate object speed; integrated GigE cameras, PLCs, and industrial scales.</li>
+      <h3 class="text-2xl font-bold mb-10">Highlighted Products</h3>
+      <div class="grid gap-8 md:grid-cols-2">
+        <!-- Workplace Safety -->
+        <div class="bg-white shadow rounded-2xl p-6">
+          <h4 class="text-xl font-semibold mb-2">Workplace Safety Platform</h4>
+          <p class="text-gray-600">Modular video analytics system recognizing PPE compliance, vehicle speed, fall detection, heatmaps, and LPR.</p>
+          <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
+            <li>Architected end-to-end system</li>
+            <li>Developed custom DeepStream plugins</li>
+            <li>Designed monocular speed estimation using ground-plane projection</li>
           </ul>
-          <div class="mt-4">
-            <p class="text-xs uppercase tracking-wide text-slate-500">Flagship Products</p>
-            <div class="mt-2 grid sm:grid-cols-2 gap-3">
-              <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <p class="font-medium">Workplace Safety</p>
-                <p class="text-xs text-slate-500">Modular video analytics — PPE, speed, heatmaps, fall detection, LPR, and more.</p>
-              </div>
-              <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <p class="font-medium">Workplace Productivity</p>
-                <p class="text-xs text-slate-500">Stage‑wise activity & cycle‑time KPIs for assembly lines in real‑time.</p>
-              </div>
-              <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <p class="font-medium">DWS System</p>
-                <p class="text-xs text-slate-500">2000/hour dimensioning + weighing + barcode/OCR with real‑time 3D viz.</p>
-              </div>
-              <div class="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
-                <p class="font-medium">Agentic Digital Workers</p>
-                <p class="text-xs text-slate-500">RAG + real‑time voice (ASR → LLM → TTS), SFT on small LLMs for extraction.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-        <!-- BaseApp -->
-        <article class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h3 class="font-semibold text-lg">BaseApp Systems</h3>
-              <p class="text-sm text-slate-500">Machine Learning Engineer • Systems Engineer</p>
-            </div>
-            <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800">Jan 2016 — Jul 2018</span>
-          </div>
-          <ul class="mt-4 space-y-2 text-sm leading-relaxed list-disc pl-5">
-            <li>Delivered AI/embedded products across CV, IoT, and edge — owning architecture, firmware, training, and deployment.</li>
-            <li>Built Deepsight SDK (C++) for on‑prem FR & Age/Gender models over HTTP; created Buildroot‑based camera firmware.</li>
-            <li>Shipped multiple IoT devices (TempHawk, WiFi‑SD, Dashiy, STM32 gateways) with OTA and robust firmware.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
+        </div>
 
-  <!-- Projects (selected) -->
-  <section id="projects" class="py-12 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">Selected Projects</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Face Recognition Attendance</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Warehouse attendance using RTSP cameras with rapid enrollment; kiosk variant on Jetson Nano.</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">RTSP</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Jetson</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Dlib</span>
-          </div>
+        <!-- Workplace Productivity -->
+        <div class="bg-white shadow rounded-2xl p-6">
+          <h4 class="text-xl font-semibold mb-2">Workplace Productivity System</h4>
+          <p class="text-gray-600">Real-time video analytics for assembly line productivity, monitoring operator activities and KPIs.</p>
+          <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
+            <li>Built monorepo + dockerized workflow for lean delivery</li>
+            <li>Enabled real-time elemental activity & cycle time tracking</li>
+          </ul>
         </div>
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Social Distancing Analytics</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Calibrated RGB‑camera spacing estimation via ground‑plane projection to measure 6‑ft distance.</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Calibration</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">OpenCV</span>
-          </div>
+
+        <!-- DWS System -->
+        <div class="bg-white shadow rounded-2xl p-6">
+          <h4 class="text-xl font-semibold mb-2">Dimensioning, Weighing & Scanning System</h4>
+          <p class="text-gray-600">High-throughput package scanner integrating dimensioning, weighing, and barcode/OCR.</p>
+          <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
+            <li>Developed novel deep learning corner detection model</li>
+            <li>Implemented 3D point cloud–based dimensioning with OpenGL viz</li>
+            <li>Integrated with GigE Vision cameras & industrial hardware</li>
+          </ul>
         </div>
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Forklift Pick Accuracy</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Stereo 3D point clouds streamed to GPU; detect pick events and validate via YOLO & picklists.</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">Stereo</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">YOLO</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">GPU</span>
-          </div>
-        </div>
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-          <h3 class="font-semibold">Hourglass Corner Detection</h3>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Custom network for parcel corners (rigid/soft) enabling accurate disparity & dimensioning.</p>
-          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">PyTorch</span>
-            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800">3D</span>
-          </div>
+
+        <!-- Agentic Platform -->
+        <div class="bg-white shadow rounded-2xl p-6">
+          <h4 class="text-xl font-semibold mb-2">Agentic Digital Workers</h4>
+          <p class="text-gray-600">LLM-powered workflows with real-time transcription → LLM → TTS pipelines.</p>
+          <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
+            <li>Built query engines using RAG</li>
+            <li>Performed SFT with Unsloth on small LLMs (PEFT; QLora)</li>
+            <li>Enabled concurrent serving of real-time voice agents</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-12 sm:py-16 bg-slate-100/60 dark:bg-slate-900/40">
+  <section id="skills" class="py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">Skills</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6 text-sm">
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-2">Computer Vision</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">OpenCV</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">DeepStream</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">GStreamer</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">NVIDIA TAO</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">ONNX Runtime</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">FFmpeg</span>
-          </div>
-          <p class="text-xs uppercase tracking-wide text-slate-500 mt-4 mb-2">Generative AI</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Unsloth</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">vLLM</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Triton</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Riva</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Transformers</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">LangChain</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">LlamaIndex</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">FAISS</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Weaviate</span>
-          </div>
-        </div>
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-          <p class="text-xs uppercase tracking-wide text-slate-500 mb-2">Languages</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Python</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">C/C++</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">JavaScript</span>
-          </div>
-          <p class="text-xs uppercase tracking-wide text-slate-500 mt-4 mb-2">Ops & Tooling</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Docker</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Monorepo</span>
-            <span class="px-2 py-1 rounded bg-slate-200/70 dark:bg-slate-800/70">Reusable Libraries</span>
-          </div>
-        </div>
+      <h3 class="text-2xl font-bold mb-6">Key Skills</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
+        <div class="bg-white shadow rounded-xl p-4">Computer Vision: OpenCV, DeepStream, GStreamer</div>
+        <div class="bg-white shadow rounded-xl p-4">Generative AI: Hugging Face, vLLM, Riva, LangChain</div>
+        <div class="bg-white shadow rounded-xl p-4">Agentic AI: CrewAI, Agno (Phidata), LlamaIndex</div>
+        <div class="bg-white shadow rounded-xl p-4">Languages: Python, C/C++, JS</div>
+        <div class="bg-white shadow rounded-xl p-4">Deployment: Docker, NVIDIA Triton, Edge AI</div>
+        <div class="bg-white shadow rounded-xl p-4">ML Tooling: PyTorch, TensorFlow, scikit-learn</div>
       </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="py-12 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">Education</h2>
-      <ul class="mt-4 space-y-3 text-sm">
-        <li class="flex items-start justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-          <div>
-            <p class="font-medium">M.Tech — Pondicherry University</p>
-            <p class="text-slate-500">2015</p>
-          </div>
-        </li>
-        <li class="flex items-start justify-between p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-          <div>
-            <p class="font-medium">B.E — Anna University</p>
-            <p class="text-slate-500">2012</p>
-          </div>
-        </li>
-      </ul>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-12 sm:py-16 bg-slate-100/60 dark:bg-slate-900/40">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl font-bold">Contact</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50">
-          <p class="text-sm text-slate-600 dark:text-slate-300">Open to opportunities in AI/ML leadership & hands‑on roles. Prefer roles that ship real products and mentor strong teams.</p>
-          <div class="mt-4 space-y-2 text-sm">
-            <p><strong>Email:</strong> <a class="text-brand-600 hover:underline" href="mailto:azmathmoosa@gmail.com">azmathmoosa@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a class="text-brand-600 hover:underline" href="tel:+919560062028">+91 95600 62028</a></p>
-            <p><strong>Site:</strong> <a class="text-brand-600 hover:underline" href="https://kamerai.ai" target="_blank" rel="noopener">kamerai.ai</a></p>
-          </div>
-        </div>
-        <form class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/50" onsubmit="event.preventDefault(); alert('Thanks! This demo form doesn\'t send emails. Replace with your form backend.');">
-          <label class="block text-sm">Your Email
-            <input required type="email" class="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2" placeholder="you@company.com" />
-          </label>
-          <label class="block text-sm mt-3">Message
-            <textarea required rows="4" class="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-transparent px-3 py-2" placeholder="Let\'s talk about…"></textarea>
-          </label>
-          <button class="mt-4 w-full px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm">Send</button>
-          <p class="text-xs text-slate-500 mt-2">Tip: swap this with Formspree, Basin, or a serverless function.</p>
-        </form>
-      </div>
+  <section id="contact" class="py-16 bg-gray-100">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+      <p class="text-gray-600 mb-6">
+        Feel free to reach out to me using the form below.
+      </p>
+      <!-- Google Form Embed (replace with your form link) -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4oRES49HbHWm6WcR1w_97RYobTDVt3BCbCaj12LyjLUEWXQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
   </section>
 
-  <footer class="py-8">
-    <div class="max-w-6xl mx-auto px-4 text-xs text-slate-500 flex items-center justify-between">
-      <p>© <span id="y"></span> Azmath Moosa. All rights reserved.</p>
-      <a href="#home" class="hover:text-brand-500">Back to top ↑</a>
-    </div>
+  <!-- Footer -->
+  <footer class="bg-white border-t py-6 mt-12 text-center text-gray-500 text-sm">
+    <p>© 2025 Azmath Moosa • Built with Tailwind (shadcn style) • Hosted on GitHub Pages</p>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      setTheme(isDark ? 'light' : 'dark');
-    });
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- JSON‑LD for rich snippets -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Azmath Moosa",
-    "jobTitle": "Principal Data Scientist / AI Product Architect",
-    "email": "mailto:azmathmoosa@gmail.com",
-    "url": "https://kamerai.ai",
-    "knowsAbout": ["Computer Vision", "Generative AI", "Agentic AI", "RAG", "DeepStream", "GStreamer", "vLLM", "Triton", "Riva"],
-    "alumniOf": ["Pondicherry University", "Anna University"]
-  }
-  </script>
 </body>
 </html>
