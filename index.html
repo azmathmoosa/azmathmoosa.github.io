@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azmath Moosa | AI Product Architect</title>
+  <title>Azmath Moosa | Profile</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <script id="site-data" type="application/json">
   {
-    "name": "Azmath Moosa",
-    "nav": ["About", "Products", "Skills", "Contact"],
-    "hero": {
-      "title": "Principal Data Scientist & AI Product Architect",
-      "tagline": "Generative AI • Computer Vision • Agentic AI",
-      "linkedin": "https://www.linkedin.com/in/azmathmoosa/"
+    "profile": {
+      "name": "Azmath Moosa",
+      "tagline": "AI Product Architect & Principal Data Scientist",
+      "bio": "I am an accomplished AI/ML engineer with 9+ years of experience architecting and deploying scalable AI solutions in <span class='font-semibold'>computer vision</span> and <span class='font-semibold'>generative AI</span>. I specialize in end-to-end product delivery, agentic workflows, RAG pipelines, and cloud/edge deployments. I thrive on building impactful products, mentoring teams, and pushing the boundaries of applied AI."
     },
-    "about": "I am an accomplished AI/ML engineer with 9+ years of experience architecting and deploying scalable AI solutions in <span class='font-semibold'>computer vision</span> and <span class='font-semibold'>generative AI</span>. I specialize in end-to-end product delivery, agentic workflows, RAG pipelines, and cloud/edge deployments. I thrive on building impactful products, mentoring teams, and pushing the boundaries of applied AI.",
-    "products": [
+    "projects": [
       {
         "title": "Workplace Safety Platform",
         "description": "Modular video analytics system recognizing PPE compliance, vehicle speed, fall detection, heatmaps, and LPR.",
@@ -53,6 +50,7 @@
         ]
       }
     ],
+
     "skills": [
       "Computer Vision: OpenCV, DeepStream, GStreamer",
       "Generative AI: Hugging Face, vLLM, Riva, LangChain",
@@ -74,84 +72,56 @@
     });
   </script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans" x-data="site()">
+<body class="bg-white text-gray-900 font-serif leading-relaxed" x-data="site()">
 
-  <!-- Navbar -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold" x-text="name"></h1>
-      <nav class="space-x-6">
-        <template x-for="item in nav" :key="item">
-          <a :href="'#' + item.toLowerCase()" class="text-gray-700 hover:text-black" x-text="item"></a>
-        </template>
-      </nav>
+  <nav class="max-w-3xl mx-auto px-4 py-6 flex justify-between items-center">
+    <h1 class="text-3xl font-bold" x-text="profile.name"></h1>
+    <div class="space-x-4 text-base">
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#contact" class="hover:underline">Contact</a>
     </div>
+  </nav>
+
+  <header class="max-w-3xl mx-auto px-4 mt-4">
+    <p class="text-xl text-gray-700" x-text="profile.tagline"></p>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-24">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-4" x-text="hero.title"></h2>
-      <p class="text-lg" x-text="hero.tagline"></p>
-      <div class="mt-6">
-        <a :href="hero.linkedin" target="_blank" class="bg-white text-indigo-600 font-medium px-6 py-2 rounded-lg shadow hover:bg-gray-100">LinkedIn</a>
-      </div>
-    </div>
-  </section>
+  <main class="max-w-3xl mx-auto px-4 mt-12">
+    <section id="about" class="mb-16">
+      <h2 class="text-2xl font-semibold mb-4">About</h2>
+      <p class="text-lg md:text-xl" x-html="profile.bio"></p>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="py-16">
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-6">About Me</h3>
-      <p class="text-gray-700 leading-relaxed" x-html="about"></p>
-    </div>
-  </section>
+    <section id="projects" class="mb-16">
+      <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+      <template x-for="project in projects" :key="project.title">
+        <article class="mb-12">
+          <h3 class="text-xl font-semibold" x-text="project.title"></h3>
+          <p class="mt-2 text-base md:text-lg text-gray-700" x-text="project.description"></p>
+          <ul class="mt-2 list-disc list-inside text-base md:text-lg text-gray-700">
+            <template x-for="feat in project.features" :key="feat">
+              <li x-text="feat"></li>
+            </template>
+          </ul>
+        </article>
+      </template>
+    </section>
 
-  <!-- Products -->
-  <section id="products" class="py-16 bg-gray-100">
-    <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-10">Highlighted Products</h3>
-      <div class="grid gap-8 md:grid-cols-2">
-        <template x-for="product in products" :key="product.title">
-          <div class="bg-white shadow rounded-2xl p-6">
-            <h4 class="text-xl font-semibold mb-2" x-text="product.title"></h4>
-            <p class="text-gray-600" x-text="product.description"></p>
-            <ul class="mt-3 list-disc list-inside text-gray-600 text-sm">
-              <template x-for="feat in product.features" :key="feat">
-                <li x-text="feat"></li>
-              </template>
-            </ul>
-          </div>
-        </template>
-      </div>
-    </div>
-  </section>
+    <section id="contact" class="mb-16">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p class="text-base md:text-lg mb-4" x-text="contact.blurb"></p>
+      <p class="text-base md:text-lg">
+        <a :href="contact.linkedin" class="text-blue-600 underline">LinkedIn</a>
+        <span class="mx-2">|</span>
+        <a :href="contact.form" class="text-blue-600 underline">Message Form</a>
+      </p>
+    </section>
+  </main>
 
-  <!-- Skills -->
-  <section id="skills" class="py-16">
-    <div class="max-w-6xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-6">Key Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
-        <template x-for="skill in skills" :key="skill">
-          <div class="bg-white shadow rounded-xl p-4" x-text="skill"></div>
-        </template>
-      </div>
-    </div>
-  </section>
+  <footer class="max-w-3xl mx-auto px-4 py-12 text-center text-sm text-gray-500 border-t" x-text="footer"></footer>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
-      <p class="text-gray-600 mb-6" x-text="contact.blurb"></p>
-      <iframe :src="contact.form" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t py-6 mt-12 text-center text-gray-500 text-sm">
-    <p x-text="footer"></p>
-  </footer>
 
 </body>
 </html>
+
